@@ -1,12 +1,12 @@
 <template>
   <div class="job-list">
-    <p>Order by {{ order }}</p>
+    <p><b>Order by {{ order }}</b></p>
     <transition-group name="list" tag="ul">
       <li v-for="job in orderedJobs" :key="job.id">
         <h2>{{ job.title }} in {{ job.location }}</h2>
         <div class="salary">
-          <img src="../assets/rupee.svg" alt="rupee icon">
-          <p>{{ job.salary }} rupees</p>
+          <img src="../assets/yen.svg" alt="yen icon">
+          <p>{{ job.salary }} yens</p>
         </div>
         <div class="description">
           <p>
@@ -83,9 +83,9 @@ export default defineComponent({
     width: 30px;
   }
   .salary p {
-    color: #17bf66;
+    color: #008680;
     font-weight: bold;
-    margin: 10px 4px;
+    margin: 10px 10px;
   }
   .list-move {
     transition: all 1s

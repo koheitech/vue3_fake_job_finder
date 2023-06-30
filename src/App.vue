@@ -2,14 +2,14 @@
   <div class="app">
     <header>
       <dv class="title">
-        <img src="./assets/heart.svg" alt="site logo">
-        <h1>Hyrule Jobs</h1>
+        <img src="./assets/job.svg" alt="site logo">
+        <h1>Job Finder</h1>
       </dv>
       <div class="order">
-        <button @click="handleClick('title')">order by title</button>
-        <button @click="handleClick('salary')">order by salary</button>
-        <button @click="handleClick('location')">order by location</button>
-        <button class="toggleButton" @click="toggleOrder">reverse order</button>
+        <button @click="handleClick('title')">Order by Title</button>
+        <button @click="handleClick('salary')">Order by Salary</button>
+        <button @click="handleClick('location')">Order by Location</button>
+        <button class="toggleButton" @click="toggleOrder">Reverse Order</button>
       </div>
     </header>
     <JobList :jobs="jobs" :order="order" :order-direction="orderDirection"/>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs } from 'vue';
+import { defineComponent, ref } from 'vue';
 import JobList from './components/JobsList.vue'
 import Job from  './types/Job'
 import OrderTerm from  './types/OrderTerm'
@@ -62,19 +62,20 @@ export default defineComponent({
   }
   button {
     margin: 0 10px;
-    color: #1195c9;
-    border: 3px solid #1195c9;
-    background: #d5f0ff;
+    color: #008680;
+    border: 3px solid #008680;
+    background: white;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
   }
   .toggleButton {
-    color: #17bf66;
-    border: 3px solid #17bf66;
+    color: black;
+    border: 3px solid black;
   }
   header .title{
+    color: #008680;
     display: flex;
     justify-content: center;
   }
