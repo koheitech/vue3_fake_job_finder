@@ -24,6 +24,7 @@
 import { computed, defineComponent, PropType } from "vue";
 import Job from "@/types/Job";
 import OrderTerm from "@/types/OrderTerm";
+import Order from "@/types/Order";
 
 export default defineComponent({
   props: {
@@ -34,12 +35,19 @@ export default defineComponent({
     order: {
       required: true,
       type: String as PropType<OrderTerm>,
+    },
+    orderDirection: {
+      required: true,
+      type: String as PropType<Order>,
     }
   },
   setup(props) {
     const orderedJobs = computed(() => {
       return [...props.jobs].sort((a: Job, b: Job) => {
-        return a[props.order] > b[props.order] ? 1 : -1
+        if(props.orderDirection === 'ASC')
+          return a[props.order] > b[props.order] ? 1 : -1
+        else
+        return a[props.order] > b[props.order] ? -1 : 1
       })
     })
 

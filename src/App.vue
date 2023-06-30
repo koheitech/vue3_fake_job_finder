@@ -5,9 +5,10 @@
         <button @click="handleClick('title')">order by title</button>
         <button @click="handleClick('salary')">order by salary</button>
         <button @click="handleClick('location')">order by location</button>
+        <button class="toggleButton" @click="toggleOrder">reverse order</button>
       </div>
     </header>
-    <JobList :jobs="jobs" :order="order"/>
+    <JobList :jobs="jobs" :order="order" :order-direction="orderDirection"/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import { defineComponent, reactive, ref, toRefs } from 'vue';
 import JobList from './components/JobsList.vue'
 import Job from  './types/Job'
 import OrderTerm from  './types/OrderTerm'
+import Order from './types/Order';
 
 export default defineComponent({
   name: 'App',
@@ -30,12 +32,17 @@ export default defineComponent({
     ])
 
     const order = ref<OrderTerm>('title')
+    const orderDirection = ref<Order>('ASC')
 
     const handleClick = (term: OrderTerm) => {
       order.value = term
     }
 
-    return { jobs, handleClick, order }
+    const toggleOrder = () => {
+      orderDirection.value = (orderDirection.value === 'ASC') ? 'DECS' : 'ASC'
+    }
+
+    return { jobs, handleClick, toggleOrder, order, orderDirection }
   },
   methods: {
   }
@@ -58,5 +65,9 @@ export default defineComponent({
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+  }
+  .toggleButton {
+    color: #17bf66;
+    border: 3px solid #17bf66;
   }
 </style>
