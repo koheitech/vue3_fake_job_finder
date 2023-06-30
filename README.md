@@ -11,8 +11,9 @@ but it has sorting feature of the content:
 - reverse the order (ASC, DESC)
 
 ## Demo
-
 demo is running on: https://zingy-torte-ba3a49.netlify.app/
+
+![ezgif com-video-to-gif](https://github.com/koheitech/job_finder_vue3_ts/assets/91676145/fceb383d-4df6-49f8-a632-6e8eb4ab97a7)
 
 ## Project setup
 ```
