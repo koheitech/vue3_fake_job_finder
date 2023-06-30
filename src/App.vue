@@ -1,6 +1,10 @@
 <template>
   <div class="app">
     <header>
+      <dv class="title">
+        <img src="./assets/heart.svg" alt="site logo">
+        <h1>Hyrule Jobs</h1>
+      </dv>
       <div class="order">
         <button @click="handleClick('title')">order by title</button>
         <button @click="handleClick('salary')">order by salary</button>
@@ -69,5 +73,16 @@ export default defineComponent({
   .toggleButton {
     color: #17bf66;
     border: 3px solid #17bf66;
+  }
+  header .title{
+    display: flex;
+    justify-content: center;
+  }
+  header img {
+    width: 60px;
+    margin-right: 20px;
+  }
+  header h1 {
+    font-size: 3em;
   }
 </style>
